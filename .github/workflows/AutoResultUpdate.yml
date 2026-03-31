@@ -31,10 +31,10 @@ jobs:
       - name: Extract Issue Id from Issue No
         id: get_issue_id
         run: |
-          GH_TOKEN: ${{ github.token }}
-          ORGANIZATION_NAME: ${{ github.repository_owner }}
-          REPOSITORY_NAME: ${{ github.event.repository.name }}
-          ISSUE_NO: ${{ steps.get_issue_number.outputs.issue_number }}
+          GH_TOKEN: "${{ github.token }}"
+          ORGANIZATION_NAME: "${{ github.repository_owner }}"
+          REPOSITORY_NAME: "${{ github.event.repository.name }}"
+          ISSUE_NO: "${{ steps.get_issue_number.outputs.issue_number }}"
           echo "Debug: ORGANIZATION_NAME = $ORGANIZATION_NAME"
           echo "Debug: REPOSITORY_NAME = $REPOSITORY_NAME"
           echo "Debug: ISSUE_NO = $ISSUE_NO"
