@@ -14,7 +14,7 @@ jobs:
       - name: Extract Issue number from PR body
         id: get_issue_number
         env:
-          PULL_REQUEST_BODY: ${{ github.event.pull_request.body }}
+          PULL_REQUEST_BODY: "${{ github.event.pull_request.body }}”
         run: |
           # PR本文から #123 の形式のIssue番号を抽出する（正規表現は適宜調整してください）
           PR_BODY="$PULL_REQUEST_BODY"
