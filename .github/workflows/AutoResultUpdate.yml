@@ -34,7 +34,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.Sample_My_Secret }}
           ORGANIZATION_NAME: ${{ github.repository_owner }}
           REPOSITORY_NAME: ${{ github.event.repository.name }}
-          ISSUE_NO: ${{ steps.get_issue_number.outputs.issue_number }}
+          # ISSUE_NO: ${{ steps.get_issue_number.outputs.issue_number }}
+          ISSUE_NO: ”2”
         run: |
           echo "Debug: ORGANIZATION_NAME = $ORGANIZATION_NAME"
           echo "Debug: REPOSITORY_NAME = $REPOSITORY_NAME"
