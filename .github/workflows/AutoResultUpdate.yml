@@ -31,7 +31,7 @@ jobs:
       - name: Extract Issue Id from Issue No
         id: get_issue_id
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           ORGANIZATION_NAME: ${{ github.repository_owner }}
           REPOSITORY_NAME: ${{ github.event.repository.name }}
           ISSUE_NO: ${{ steps.get_issue_number.outputs.issue_number }}
@@ -71,7 +71,7 @@ jobs:
       - name: Extract Project Id from Project No
         id: get_Project_id
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           ORGANIZATION_NAME: ${{ github.repository_owner }}
           PROJECT_TITLE: "ProjectCreationSteps"
         run: |
@@ -103,7 +103,7 @@ jobs:
       - name: Extract Custom Field Status Id from Project ID
         id: get_Status_Field_Id
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           PROJECT_ID: ${{ steps.get_Project_id.outputs.project_id }}
         run: |
           FIELDID_QUERY='
@@ -139,7 +139,7 @@ jobs:
       - name: Set Project Custom Field Options Deny Id from
         id: get_Status_Deny_Id
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           PROJECT_ID: ${{ steps.get_Project_id.outputs.project_id }}
         run: |
           DENYID_QUERY='
@@ -177,7 +177,7 @@ jobs:
       - name: Set Project Custom Field Options Approve Id from
         id: get_Status_Approve_Id
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           PROJECT_ID: ${{ steps.get_Project_id.outputs.project_id }}
         run: |
           APPROVEID_QUERY='
@@ -235,7 +235,7 @@ jobs:
       - name: changes status to the linked Issue
         if: ${{ steps.get_issue_number.outputs.issue_number != '' }} && ${{ steps.get_status.outputs.issue_status != '' }}
         env:
-          GH_TOKEN: ${{ secrets.Sample_My_Secret }}
+          GH_TOKEN: ${{ github.token }}
           ISSUE_ID: ${{ steps.get_issue_id.outputs.issue_global_id }}
           STATUS_ID: ${{ steps.get_Status_Field_Id.outputs.status_id }}
           PROJECT_ID: ${{ steps.get_project_id.outputs.project_id }}
